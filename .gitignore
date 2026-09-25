@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+.venv/
+.pytest_cache/
+# Datos locales (base de datos y respaldos no se versionan)
+backend/data/
+*.db
+*.db-journal
+# Node
+node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/.vite/
+# Entorno y secretos
+.env
+.env.local
+backend/.env
+frontend/.env
+# Sistema
+.DS_Store
+Thumbs.db
