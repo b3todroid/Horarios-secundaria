@@ -32,6 +32,11 @@ def _state(repo: Repository, pid: str) -> dict:
         "conflicts": schedule_conflicts(ctx, ctx.schedule),
         "pending": pending_assignments(ctx, ctx.schedule),
         "flexible_used": flexible_usage(ctx, ctx.schedule),
+        "flexible_ids": [
+            e.id for e in ctx.schedule
+            if e.assignment_id in ctx.assignments
+            and ctx.state(ctx.assignments[e.assignment_id].teacher_id, e.day, e.period_number) == s.CellState.flexible
+        ],
         "loads": [x.model_dump() for x in load_summary(ctx)],
         "history": repo.history_labels(pid),
         "last_run": repo.last_run(pid),
